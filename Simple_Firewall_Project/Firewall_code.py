@@ -3,6 +3,7 @@
 #->To run this, go to powershell with administrative privilege
 #-> navigate to the directory where program is stored 
 #-> run "python Firewall_code.py"
+# ** It is adviced ti run this code in virtual environment(venv) 
 # '''
 
 import os
@@ -18,7 +19,7 @@ LOG_FILE = BASE_DIR / "firewall_log.txt"
 SUSPICIOUS_LOG = BASE_DIR / "suspicious_log.txt"
 
 # IPs to watch for; when seen in blocked packets they are logged to SUSPICIOUS_LOG
-WATCHED_IPS = {'192.128.13.91' , '192.168.11.144','192.168.13.52','192.168.9.77','192.168.14.237','192.168.14','192.168.100.1','192.168.100.77'
+WATCHED_IPS = {
     # Example: "192.0.2.10",
 }
 
